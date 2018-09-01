@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Monitoring</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="/static/monitoring.js"></script>
+</head>
+
+<body style="background-color: #E2E2E2;">
+    <!-- Navigation Bar starts-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="ideas.html">
+                        <span class="fa fa-leanpub"></span> Ideas
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="monitoring.html">
+                        <span class="fa fa-line-chart"></span> Monitoring
+                    </a>
+                </li>
+                <li>
+                    <a href="twitter.html">
+                        <span class="fa fa-twitter-square"></span> Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="email.html">
+                        <span class="glyphicon glyphicon-envelope"></span> Email</a>
+                </li>
+                <li>
+                    <a href="/download">
+                        <span class="glyphicon glyphicon-download-alt"></span> Download
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a style="color: #337ab7;" class="animated flip">
+                        <span class="fa fa-user-circle"></span>
+                        <span id="lblName"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navigation Bar ends -->
+    <!-- Info labels -->
+    <div class="row">
+        <!-- First Label -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #272727; text-align: center;">
+                    <span class="monitor-header">Total Number Of Ideas</span>
+                </div>
+                <div class="panel-body" style="text-align: center;">
+                    <span id="divIdeaCounter" class="monitor-counter"></span>
+                </div>
+            </div>
+        </div>
+        <!-- Second label -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #272727; text-align: center;">
+                    <span class="monitor-header">Last Added Idea</span>
+                </div>
+                <div class="panel-body" style="text-align: center;">
+                    <span id="divIdeaLastAdded" class="monitor-counter"></span>
+                </div>
+            </div>
+        </div>
+        <!-- Third Label -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #272727; text-align: center;">
+                    <span class="monitor-header">Improvement From Last Month</span>
+                </div>
+                <div class="panel-body" style="text-align: center;">
+                    <span id="lblStatusImpro" style="font-size: 2vw;"></span>
+                    <span id="divImprovement" class="monitor-counter"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Three panel area -->
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="panel panel-default" style="height: 300px;">
+                <div class="panel panel-body">
+                    <canvas id="cnvDaily" height="260"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="panel panel-default" style="height: 300px;">
+                <div class="panel panel-body">
+                    <canvas id="cnvMonth" height="260"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="panel panel-default" style="height: 300px;">
+                <div class="panel panel-body">
+                    <canvas id="cnvYear" height="260"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

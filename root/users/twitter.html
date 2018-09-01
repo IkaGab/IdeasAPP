@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twitter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/twitter.js"></script>
+</head>
+
+<body style="background-color: #E2E2E2;">
+    <!-- Navigation Bar starts-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="ideas.html">
+                        <span class="fa fa-leanpub"></span> Ideas</a>
+                </li>
+                <li>
+                    <a href="monitoring.html">
+                        <span class="fa fa-line-chart"></span> Monitoring</a>
+                </li>
+                <li class="active">
+                    <a href="twitter.html">
+                        <span class="fa fa-twitter-square"></span> Twitter</a>
+                </li>
+                <li>
+                    <a href="email.html">
+                        <spna class="glyphicon glyphicon-envelope"></spna> Email</a>
+                </li>
+                <li>
+                    <a href="/download">
+                        <span class="glyphicon glyphicon-download-alt"></span> Download</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a style="color: #337ab7;" class="animated flip">
+                        <span class="fa fa-user-circle"></span>
+                        <span id="lblName"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navigation Bar ends -->
+    <!-- Select area -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-sm-2">
+                <span style="font-weight: 800;">
+                    <span class="glyphicon glyphicon-search"></span> Search For Tweets</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-sm-10">
+                <select id="selectLst" class="form-control">
+                </select>
+            </div>
+            <div class="col-lg-2 col-sm-2">
+                <button id="btnFind" onclick="findTweets()" class="btn btn-primary" style="width:100%;">Search</button>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-lg-2 col-lg-offset-5">
+                <div id="circularG" style="display: none;">
+                    <div id="circularG_1" class="circularG"></div>
+                    <div id="circularG_2" class="circularG"></div>
+                    <div id="circularG_3" class="circularG"></div>
+                    <div id="circularG_4" class="circularG"></div>
+                    <div id="circularG_5" class="circularG"></div>
+                    <div id="circularG_6" class="circularG"></div>
+                    <div id="circularG_7" class="circularG"></div>
+                    <div id="circularG_8" class="circularG"></div>
+                </div>
+                <div>
+                    <div id="txtMsg" style="text-align: center;" ondblclick="closeTab()"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div id="tweetPanel" class="panel panel-default" style="display: none;">
+                    <div class="panel-heading" style="text-align: center; background-color: #272727; color: #ffffff;">
+                        <span id="txtName" style="font-weight: 800;"></span>
+                        <img id="banner" alt="Banner" class="img-responsive" style="padding: 5px 0px 10px 0px;">
+                        <span id="txtDescrip" style="font-weight: 700;"></span>
+                    </div>
+                    <div class="panel-body">
+                        <table style="width: 100%; color: #677380; font-weight: 800;">
+                            <tr>
+                                <td rowspan="2">
+                                    <img id="image" alt="" class="img-responsive">
+                                </td>
+                                <td>Followers</td>
+                                <td>Location</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span id="txtNumFoll"></span>
+                                </td>
+                                <td>
+                                    <span id="txtLocation"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="panel-footer" style="text-align: center; background-color: #272727; color: #ffffff;">
+                        <i id="txtTweet"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ideas Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/ideas.js"></script>
+</head>
+
+<body style="background-color: #E2E2E2;">
+    <!-- Navigation Bar starts-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="ideas.html">
+                        <span class="fa fa-leanpub"></span> Ideas</a>
+                </li>
+                <li>
+                    <a href="monitoring.html">
+                        <span class="fa fa-line-chart"></span> Monitoring</a>
+                </li>
+                <li>
+                    <a href="twitter.html">
+                        <span class="fa fa-twitter-square"></span> Twitter</a>
+                </li>
+                <li>
+                    <a href="email.html">
+                        <span class="glyphicon glyphicon-envelope"></span> Email</a>
+                </li>
+                <li>
+                    <a href="/download">
+                        <span class="glyphicon glyphicon-download-alt"></span> Download</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a style="color: #337ab7;" class="animated flip">
+                        <span class="fa fa-user-circle"></span>
+                        <span id="lblName"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navigation Bar ends -->
+    <!--  -->
+    <div class="container">
+        <div class="row">
+            <!-- Insert Idea -->
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <span style="font-weight: 800; font-size: 15px;">
+                    <span class="glyphicon glyphicon-plus"></span> Idea</span>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                <input type="text" id="txtGetIdea" class="form-control" style="width:100%;">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <button onclick="putAnIdea()" class="btn btn-primary" style="width:100%;"> Add</button>
+            </div>
+        </div>
+        <!-- Delete Idea -->
+        <div class="row" style="padding-top:15px;">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <span style="font-weight: 800; font-size: 15px;">
+                    <span class="glyphicon glyphicon-trash"></span> Delete Idea</span>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                <input type="text" id="txtGetDeleteId" class="form-control" style="width:100%;">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <button onclick="deleteIdea()" style="width:100%;" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+        <!-- Update Idea -->
+        <div class="row" style="padding-top:15px;">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <span style="font-weight: 800; font-size: 15px;">
+                    <span class="glyphicon glyphicon-pencil"></span> Update Idea</span>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                <input type="text" id="txtIDToUpdate" onfocus="if(this.value == 'ID') { this.value = ''; }" value="ID" class="form-control"
+                    style="width:100%;">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                <input type="text" id="txtIdeaToUpdate" onfocus="if(this.value == 'Idea') { this.value = ''; }" value="Idea" class="form-control"
+                    style="width:100%;">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <button onclick="UpdateIdea()" style="width:100%; background-color:#272727; color: #FFFFFF;" class="btn btn-default">Update</button>
+            </div>
+        </div>
+        <!-- Message Box -->
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-lg-12">
+                <div id="txtMsg" style="text-align: center;" ondblclick="closeTab()"></div>
+            </div>
+        </div>
+        <!-- Ideas show button -->
+        <div class="row">
+            <div class="col-lg-12">
+                <button value="Show" onclick="getAllIdeas()" data-toggle="collapse" data-target="#ideasTable" class="btn btn-primary" style="width:100%;">
+                    <span class="glyphicon glyphicon-expand"></span> Show</button>
+            </div>
+        </div>
+        <!-- Ideas table area, acordion -->
+        <div id="ideasTable" class="collapse">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead style="background-color: #272727; color: #FFFFFF;">
+                        <tr>
+                            <th scope="col" style="width: 15%">#</th>
+                            <th scope="col" style="width: 60%">
+                                <span class="glyphicon glyphicon-list-alt"></span> Idea</th>
+                            <th scope="col" style="width: 25%">
+                                <span class="glyphicon glyphicon-calendar"></span> Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="txtIdeas" style="background-color: #FFFFFF;">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
